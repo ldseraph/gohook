@@ -746,7 +746,7 @@ void hook_event_proc(XPointer closeure, XRecordInterceptData *recorded_data) {
 
 			// Check the upper half of virtual modifiers for non-zero
 			// values and set the mouse dragged flag.
-			hook->input.mouse.is_dragged = (event.mask >> 8 > 0);
+			hook->input.mouse.is_dragged = (event.mask & (MASK_BUTTON1 | MASK_BUTTON2 | MASK_BUTTON3 | MASK_BUTTON4 | MASK_BUTTON5));
 			if (hook->input.mouse.is_dragged) {
 				// Create Mouse Dragged event.
 				event.type = EVENT_MOUSE_DRAGGED;
